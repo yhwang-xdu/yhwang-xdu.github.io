@@ -18,10 +18,12 @@
 
 <!-- Website description -->
 
-<meta name="description" content="name" />
+<meta name="description" content="RSA-讨论加密消息m取值的群" />
 
 
 <!-- Website keywords -->
+
+<meta name="keywords" content="密码学, OhBlah" />
 
 
 
@@ -37,7 +39,7 @@
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="http://example.com/2025/02/19/name/" />
+<link rel="canonical" href="http://example.com/2025/02/19/RSA/" />
 
 <!-- Fancybox styling -->
 
@@ -70,7 +72,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
 </script>
   
-  <title>name - OhBlah</title>
+  <title>RSA-讨论加密消息m取值的群 - OhBlah</title>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -210,7 +212,7 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      name
+      RSA-讨论加密消息m取值的群
       
     </h1>
 
@@ -225,10 +227,55 @@
   </header>
 
   
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">前置原理描述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">RSA加密解密原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E6%98%8Emn%E4%BA%92%E7%B4%A0%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%8F%AF%E5%BF%BD%E7%95%A5"><span class="toc-number">1.2.</span> <span class="toc-text">证明mn互素的条件可忽略</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">正题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E8%AF%81%E6%98%8E%E9%9B%86%E5%90%88%E6%98%AF%E7%BE%A4"><span class="toc-number">2.1.</span> <span class="toc-text">（1）证明集合是群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E8%AF%81%E6%98%8E%E7%BE%A4%E4%B8%8D%E6%98%AF%E5%BE%AA%E7%8E%AF%E7%BE%A4"><span class="toc-number">2.2.</span> <span class="toc-text">（2）证明群不是循环群</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
 
   <div class="post-content">
     
-    
+    <p>上学期密码学学到一个问题：<br>在RSA加密算法中，为什么加密消息$m$取值的群$Z_{n}^*$在$\mod n$运算下：<br>（1）是群<br>（2）但不是循环群</p>
+<span id="more"></span>
+<h1 id="前置原理描述"><a href="#前置原理描述" class="headerlink" title="前置原理描述"></a>前置原理描述</h1><h2 id="RSA加密解密原理"><a href="#RSA加密解密原理" class="headerlink" title="RSA加密解密原理"></a>RSA加密解密原理</h2><hr>
+<p>首先，RSA的加密解密原理描述如下：</p>
+<ul>
+<li>密钥生成：<ol>
+<li>选取两个大素数$p$和$q$，计算$n&#x3D;pq$。</li>
+<li>选择公钥指数 $e$，使得 $1 &lt; e &lt; \varphi(n)$，$\gcd(e, \varphi(n)) &#x3D; 1$，其中$\varphi(n)$为$n$的欧拉函数：$\varphi(n) &#x3D; (p-1)(q-1)$</li>
+<li>计算$e$的逆元$d$为私钥：$d \equiv e^{-1} \pmod{\varphi(n)}$</li>
+<li>公钥为$(n,e)$，私钥为$d$</li>
+</ol>
+</li>
+<li>加密：<br>  给定明文$m$ ，满足$m \in {m:1\leq m&lt;n,gcd(m,n)&#x3D;1}，使用公钥$(e, n)$进行加密：<br>  $C &#x3D; m^e \mod n$</li>
+<li>解密：<br>  接收密文$C$后，使用公钥和私钥$(d, n)$进行解密：<br>  $m &#x3D; C^d \mod n$</li>
+</ul>
+<hr>
+<p>解密原理证明：<br>$C^d &#x3D; (m^e)^d &#x3D;m^{ed}\ \mod\ n$<br>其中， $ed \equiv 1 \mod \varphi(n)$，所以有$ed&#x3D;k\varphi(n)+1$<br>因为$m,n$互素时，根据欧拉定理有：<br>$m^{\varphi(n)} \equiv 1 \pmod{n}$<br>所以<br>$C^d &#x3D; m^{ed} &#x3D; m^{k\varphi(n)+1}&#x3D;m \cdot1&#x3D;m \mod n$</p>
+<h2 id="证明mn互素的条件可忽略"><a href="#证明mn互素的条件可忽略" class="headerlink" title="证明mn互素的条件可忽略"></a>证明mn互素的条件可忽略</h2><hr>
+<p>消息$m$取值范围为小于$m$且与$m$互素的整数，<br>表示为$Z_{n}^*&#x3D; {m:1\leq m&lt;n,gcd(m,n)&#x3D;1}$<br>但小于$n$的$m$与$n$不互素的概率很低，所以可以忽略，证明：<br>小于$n$且与$n$互素的数为$\varphi (n)$，所以$m$与$n$互素的概率为：<br>$\frac{\varphi(n)}{ n}&#x3D;\frac{(p-1)(q-1)}{pq}$<br>几乎为1。</p>
+<h1 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h1><p>下面来解释，为什么$m$取值的群$Z_{n}^*$在$\mod n$运算下：<br>（1）是群<br>（2）但不是循环群</p>
+<hr>
+<h2 id="（1）证明集合是群"><a href="#（1）证明集合是群" class="headerlink" title="（1）证明集合是群"></a>（1）证明集合是群</h2><p>就是验证四个条件，这个比较容易，简单描述：</p>
+<ol>
+<li>封闭性，$\forall a,b\in Z_{n}^*$，有$gcd(a,n)&#x3D;gcd(b,n)&#x3D;1$，则$gcd(ab,n)&#x3D;1$，所以元素$ab$在群中，运算封闭</li>
+<li>单位元，是1</li>
+<li>结合律，与普通模乘证明相同</li>
+<li>存在逆元，$\forall a \in Z_{n}^*,\exists b \in Z_{n}^*,s.t.ab&#x3D;1 \mod n$</li>
+<li>显然满足交换律，所以也是阿贝尔群</li>
+</ol>
+<hr>
+<h2 id="（2）证明群不是循环群"><a href="#（2）证明群不是循环群" class="headerlink" title="（2）证明群不是循环群"></a>（2）证明群不是循环群</h2><p>首先要明白循环群的定义，循环群存在一个生成元$g$，群中所有元素都可以由$g$乘方生成。<br>再说明两个定义：</p>
+<ul>
+<li>群的阶，群中元素的个数，记为$ord(G)$</li>
+<li>元素的阶，元素$a$使得$a^k&#x3D;e(单位元)$的$k$就是元素的阶，记为$ord(a)$<br>任何群都满足：<br>$\forall a \in G, ord(a)\leq ord(G)$<br>当存在元素$g$，使得$ord(g)&#x3D;ord(G)$时，群为循环群，$g$为生成元。<br>所以，证明这个问题，就是要找群的阶与群元素的阶的关系。<br>因为$Z_{n}^*$是与$n$互素元素构成的群，所以$ord(G)&#x3D;\varphi(n)&#x3D;(p-1)(q-1)$<br>任意元素$m \in Z_{n}^*$：<br>因为$m$与$n$，互素，$n&#x3D;pq$<br>所以$m$与$p,q$互素，根据欧拉定理，有<br>$m^{\varphi(p)}&#x3D;m^{p-1}\equiv1(\mod p)$<br>$m^{\varphi(q)}&#x3D;m^{q-1}\equiv1(\mod q)$</li>
+</ul>
+<p>到这一步，我们的思路是将等号左边放缩为相同的数，从而可以使用中国剩余定理，得到一个可以表示$m$的阶的等式。</p>
+<p>记$p-1$与$q-1$的最小公倍数$lcm(p-1,q-1)&#x3D;k$，由于$p$和$q$为大素数，奇数，所以$p-1$与$q-1$为偶数，必然有小于$(p-1)(q-1)$的最小公倍数，即$k&lt;(p-1)(q-1)$，这里的小于号是严格小于，所以<br>将上面两式模数放大，等式右边依然是1:<br>$m^{k}\equiv1(\mod p)$<br>$m^{k}\equiv1(\mod q)$</p>
+<p>根据中国剩余定理，<br>$m^k\equiv 1(\mod n)$<br>即$ord(m)\leq k&lt;(p-1)(q-1)&#x3D;ord(G)$<br>所以，当$p,q$是大整数时，$Z_{n}^*$一定不是循环群。</p>
+
     
   </div>
 
@@ -242,18 +289,24 @@
   
   <footer class="post-footer">
     
+    <div class="post-tags">
+      
+      <a href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
+      
+    </div>
+    
       
   <nav class="post-nav">  
       
-      <a class="prev" href="/2025/02/19/post/">  
+      <a class="prev" href="/2025/02/19/test-1/">  
         <i class="iconfont icon-left"></i>  
-        <span class="prev-text nav-default">post</span>  
+        <span class="prev-text nav-default">test</span>  
         <span class="prev-text nav-mobile">Prev</span>  
       </a>  
       
       
-      <a class="next" href="/2025/02/19/test-1/">  
-        <span class="next-text nav-default">test</span>  
+      <a class="next" href="/2025/02/19/hello-world/">  
+        <span class="next-text nav-default">Hello World</span>  
         <span class="prev-text nav-mobile">Next</span>  
         <i class="iconfont icon-right"></i>  
       </a>  

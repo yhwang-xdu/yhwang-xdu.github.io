@@ -26,7 +26,7 @@
 
 <!-- Website rss -->
 
-<link rel="alternate" href="/default" title="Hexo" >
+<link rel="alternate" href="/default" title="OhBlah" >
 
 
 <!-- Website favicon -->
@@ -44,6 +44,11 @@
 
 <!-- MathJax (LaTeX) support -->
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
 <!-- Theme styling -->
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
@@ -60,10 +65,10 @@
 
 
 <script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
 </script>
   
-  <title>Hexo</title>
+  <title>OhBlah</title>
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -71,7 +76,7 @@
   <div class="scrollPercentage"></div>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">Hexo</a>
+    <a href="/." class="logo">OhBlah</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -90,12 +95,47 @@
         Home              </li>
     </a>
     
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+    <a href="/Notes">
+      <li class="mobile-menu-item">
+        
+        
+        Notes              </li>
+    </a>
+    
   </ul>
 </nav>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
       <div class="logo-wrapper">  
-  <a href="/." class="logo">Hexo</a>  
+  <a href="/." class="logo">OhBlah</a>  
 </div>  
   
 <nav class="site-navbar">  
@@ -107,6 +147,51 @@
               
               
               Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/Notes">  
+              
+              
+              Notes  
               
           </a>  
         </li>  
@@ -238,7 +323,7 @@
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/2025/02/19/test/">RSA</a>
+      <a class="post-link" href="/2025/02/19/RSA/">RSA-讨论加密消息m取值的群</a>
       
     </h1>
 
@@ -258,36 +343,14 @@
     
     
     
+    
+    
 
     
-    <p>首先，RSA的加密解密原理描述如下：</p>
-<ul>
-<li>密钥生成：<ol>
-<li>选取两个大素数$p$和$q$，计算$n&#x3D;pq$。</li>
-<li>选择公钥指数 $e$，使得 $1 &lt; e &lt; \varphi(n)$，$\gcd(e, \varphi(n)) &#x3D; 1$，其中$\varphi(n)$为$n$的欧拉函数：$\varphi(n) &#x3D; (p-1)(q-1)$</li>
-<li>计算$e$的逆元$d$为私钥：$d \equiv e^{-1} \pmod{\varphi(n)}$</li>
-<li>公钥为$(n,e)$，私钥为$d$</li>
-</ol>
-</li>
-<li>加密：<br>  给定明文$m$ ，满足$m \in {m:1\leq m&lt;n,gcd(m,n)&#x3D;1}，使用公钥$(e, n)$进行加密：<br>  $C &#x3D; m^e \mod n$</li>
-<li>解密：<br>  接收密文$C$后，使用公钥和私钥$(d, n)$进行解密：<br>  $m &#x3D; C^d \mod n$<br>解密原理证明：<br>$C^d &#x3D; (m^e)^d &#x3D;m^{ed}\ \mod\ n$<br>其中， $ed \equiv 1 \mod \varphi(n)$，所以有$ed&#x3D;k\varphi(n)+1$<br>因为$m,n$互素时，根据欧拉定理有：<br>$m^{\varphi(n)} \equiv 1 \pmod{n}$<br>所以<br>$C^d &#x3D; m^{ed} &#x3D; m^{k\varphi(n)+1}&#x3D;m \cdot1&#x3D;m \mod n$</li>
-</ul>
-<p>消息$m$取值范围为小于$m$且与$m$互素的整数，<br>表示为$Z_{n}^*&#x3D; {m:1\leq m&lt;n,gcd(m,n)&#x3D;1}$<br>但小于$n$的$m$与$n$不互素的概率很低，所以可以忽略，证明：<br>小于$n$且与$n$互素的数为$\varphi (n)$，所以$m$与$n$互素的概率为：<br>$\frac{\varphi(n)}{ n}&#x3D;\frac{(p-1)(q-1)}{pq}$<br>几乎为1。</p>
-<p>下面来解释，为什么$m$取值的群$Z_{n}^*$在$\mod n$运算下：<br>（1）是群<br>（2）但不是循环群</p>
-<p>（1）证明集合是群，就是验证四个条件，这个比较容易，简单描述：</p>
-<ol>
-<li>封闭性，$\forall a,b\in Z_{n}^*$，有$gcd(a,n)&#x3D;gcd(b,n)&#x3D;1$，则$gcd(ab,n)&#x3D;1$，所以元素$ab$在群中，运算封闭</li>
-<li>单位元，是1</li>
-<li>结合律，与普通模乘证明相同</li>
-<li>存在逆元，$\forall a \in Z_{n}^*,\exists b \in Z_{n}^*,s.t.ab&#x3D;1 \mod n$</li>
-<li>显然满足交换律，所以也是阿贝尔群</li>
-</ol>
-<p>（2）要证明群不是循环群，首先要明白循环群的定义，循环群存在一个生成元$g$，群中所有元素都可以由$g$乘方生成。<br>再说明两个定义：</p>
-<ul>
-<li>群的阶，群中元素的个数，记为$ord(G)$</li>
-<li>元素的阶，元素$a$使得$a^k&#x3D;e(单位元)$的$k$就是元素的阶，记为$ord(a)$<br>任何群都满足：<br>$\forall a \in G, ord(a)\leq ord(G)$<br>当存在元素$g$，使得$ord(g)&#x3D;ord(G)$时，群为循环群，$g$为生成元。<br>所以，证明这个问题，就是要找群的阶与群元素的阶的关系。<br>因为$Z_{n}^*$是与$n$互素元素构成的群，所以$ord(G)&#x3D;\varphi(n)&#x3D;(p-1)(q-1)$<br>任意元素$m \in Z_{n}^*$：<br>因为$m$与$n$，互素，$n&#x3D;pq$<br>所以$m$与$p,q$互素，根据欧拉定理，有<br>$m^{\varphi(p)}&#x3D;m^{p-1}\equiv1(\mod p)$<br>$m^{\varphi(q)}&#x3D;m^{q-1}\equiv1(\mod q)$<br>到这一步，我们的思路是将等号左边放缩为相同的数，从而可以使用中国剩余定理，得到一个可以表示$m$的阶的等式。<br>记$p-1$与$q-1$的最小公倍数$lcm(p-1,q-1)&#x3D;k$，由于$p$和$q$为大素数，奇数，所以$p-1$与$q-1$为偶数，必然有小于$(p-1)(q-1)$的最小公倍数，即$k&lt;(p-1)(q-1)$，这里的小于号是严格小于，所以<br>将上面两式模数放大，等式右边依然是1:<br>$m^{k}\equiv1(\mod p)$<br>$m^{k}\equiv1(\mod q)$<br>根据中国剩余定理，<br>$m^k\equiv 1(\mod n)$<br>即$ord(m)\leq k&lt;(p-1)(q-1)&#x3D;ord(G)$<br>所以，当$p,q$是大整数时，$Z_{n}^*$一定不是循环群。</li>
-</ul>
-
+    <p>上学期密码学学到一个问题：<br>在RSA加密算法中，为什么加密消息$m$取值的群$Z_{n}^*$在$\mod n$运算下：<br>（1）是群<br>（2）但不是循环群</p>
+    <div class="read-more">
+      <a href="/2025/02/19/RSA/" class="read-more-link">Read more..</a>
+    </div>
     
     
   </div>
@@ -370,7 +433,7 @@
   
   
   
-  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  <a href="mailto:yooheric@gmail.com" class="iconfont icon-email" title="email"></a>
   
   
   
@@ -449,7 +512,7 @@
       <i class="iconfont icon-heart"></i>
     </span>
 
-    <span class="author">John Doe</span>
+    <span class="author">ohblah</span>
   </span>
 
 </div>
