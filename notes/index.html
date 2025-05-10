@@ -28,20 +28,20 @@
 
 <!-- Website rss -->
 
-<link rel="alternate" href="/default" title="OhBlah" >
+<link rel="alternate" href="/yhwang-xdu/default" title="OhBlah" >
 
 
 <!-- Website favicon -->
 
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+<link rel="shortcut icon" type="image/x-icon" href="/yhwang-xdu/favicon.ico?v=3.0.0" />
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="http://example.com/notes/" />
+<link rel="canonical" href="https://github.com/yhwang-xdu/notes/" />
 
 <!-- Fancybox styling -->
 
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/yhwang-xdu/lib/fancybox/jquery.fancybox.css" />
 
 
 <!-- MathJax (LaTeX) support -->
@@ -53,7 +53,7 @@
 
 
 <!-- Theme styling -->
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+<link rel="stylesheet" type="text/css" href="/yhwang-xdu/css/style.css?v=3.0.0" />
 
 <!-- Analytics and push -->
 
@@ -78,7 +78,7 @@
   <div class="scrollPercentage"></div>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">OhBlah</a>
+    <a href="/yhwang-xdu/." class="logo">OhBlah</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -90,42 +90,42 @@
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
     
-    <a href="/">
+    <a href="/yhwang-xdu/">
       <li class="mobile-menu-item">
         
         
         Home              </li>
     </a>
     
-    <a href="/archives/">
+    <a href="/yhwang-xdu/archives/">
       <li class="mobile-menu-item">
         
         
         Archives              </li>
     </a>
     
-    <a href="/tags/">
+    <a href="/yhwang-xdu/tags/">
       <li class="mobile-menu-item">
         
         
         Tags              </li>
     </a>
     
-    <a href="/categories/">
+    <a href="/yhwang-xdu/categories/">
       <li class="mobile-menu-item">
         
         
         Categories              </li>
     </a>
     
-    <a href="/Notes/">
+    <a href="/yhwang-xdu/Notes/">
       <li class="mobile-menu-item">
         
         
         Notes              </li>
     </a>
     
-    <a href="/about/">
+    <a href="/yhwang-xdu/about/">
       <li class="mobile-menu-item">
         
         
@@ -137,7 +137,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
       <div class="logo-wrapper">  
-  <a href="/." class="logo">OhBlah</a>  
+  <a href="/yhwang-xdu/." class="logo">OhBlah</a>  
 </div>  
   
 <nav class="site-navbar">  
@@ -145,7 +145,7 @@
     <ul id="menu" class="menu">  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/">  
+          <a class="menu-item-link" href="/yhwang-xdu/">  
               
               
               Home  
@@ -154,7 +154,7 @@
         </li>  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/archives/">  
+          <a class="menu-item-link" href="/yhwang-xdu/archives/">  
               
               
               Archives  
@@ -163,7 +163,7 @@
         </li>  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/tags/">  
+          <a class="menu-item-link" href="/yhwang-xdu/tags/">  
               
               
               Tags  
@@ -172,7 +172,7 @@
         </li>  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/categories/">  
+          <a class="menu-item-link" href="/yhwang-xdu/categories/">  
               
               
               Categories  
@@ -181,7 +181,7 @@
         </li>  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/Notes/">  
+          <a class="menu-item-link" href="/yhwang-xdu/Notes/">  
               
               
               Notes  
@@ -190,7 +190,7 @@
         </li>  
         
         <li class="menu-item">  
-          <a class="menu-item-link" href="/about/">  
+          <a class="menu-item-link" href="/yhwang-xdu/about/">  
               
               
               About  
@@ -214,6 +214,51 @@
 <li>如果仍不行，<code>/opt/todesk/config/todeskd/conf</code>文件夹，删除</li>
 <li><code>sudo systemctl start todeskd.service</code></li>
 </ol>
+<h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><h2 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep python <span class="comment"># 查看python进程</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">kill</span> -9 12345 <span class="comment"># 终止PID</span></span><br><span class="line"><span class="built_in">sudo</span> pkill -9 python <span class="comment"># 杀死所有python进程</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python script.py &gt; output.log	<span class="comment"># 执行完毕后再写入</span></span><br><span class="line"><span class="built_in">command</span> &amp; <span class="built_in">tail</span> -f output.txt	<span class="comment"># 实时显示</span></span><br><span class="line">python script.py &gt;&gt; output.log 2&gt;&amp;1	<span class="comment"># 标准错误输出重定向标准输出</span></span><br><span class="line">python script.py &amp;&gt;&gt;output.log	<span class="comment"># 等价上面</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里有个关于缓冲的问题</p>
+<table>
+<thead>
+<tr>
+<th align="left">Stream</th>
+<th align="left">Type</th>
+<th align="left">Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">stdin</td>
+<td align="left">input</td>
+<td align="left">line-buffered</td>
+</tr>
+<tr>
+<td align="left">stdout (TTY)</td>
+<td align="left">output</td>
+<td align="left">line-buffered</td>
+</tr>
+<tr>
+<td align="left">stdout (not a TTY)</td>
+<td align="left">output</td>
+<td align="left">fully-buffered</td>
+</tr>
+<tr>
+<td align="left">stderr</td>
+<td align="left">output</td>
+<td align="left">unbuffered</td>
+</tr>
+</tbody></table>
+<p>TTY：交互设备（比如终端）</p>
+<p><code>2&gt;&amp;1</code>输出到非交互设备，无缓冲的显示<code>stderr</code>有缓冲的显示<code>stdout</code></p>
+<ul>
+<li>python的<code>tqdm.write()</code>进度条，默认写入<code>stderr</code></li>
+<li>c++的<code>std::endl</code>强制清除缓冲区</li>
+</ul>
+<h2 id="查看内存用量"><a href="#查看内存用量" class="headerlink" title="查看内存用量"></a>查看内存用量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -Ph</span><br><span class="line"><span class="comment"># -P	POSIX</span></span><br><span class="line"><span class="comment"># -h	human-readable</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="SSH下的plot"><a href="#SSH下的plot" class="headerlink" title="SSH下的plot"></a>SSH下的plot</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.switch_backend(<span class="string">&#x27;agg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>matplotlib的默认backend是TkAgg，而FltAgg、GTK、GTKCairo、TkAgg、Wx和WxAgg这几个backend都要求有GUI图形界面，所以在ssh操作的时候会报错.</p>
 
   </div>
 </article>
@@ -256,7 +301,7 @@
   
   
   
-  <a target="_blank" rel="noopener" href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+  <a href="https://github.com/yhwang-xdu" class="iconfont icon-github" title="github"></a>
   
   
   
@@ -281,7 +326,7 @@
 
   
   
-  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="/yhwang-xdu/atom.xml" class="iconfont icon-rss" title="rss"></a>
   
 </div>
 
@@ -294,7 +339,7 @@
   <span class="division">|</span>
   <span class="theme-info">
     Theme -
-    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+    <a class="theme-link" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
   </span>
   <span class="division">|</span>
   <span class="hosting-info">
@@ -337,19 +382,19 @@
 
 
 
-<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/yhwang-xdu/lib/jquery/jquery.min.js"></script>
 
 
 
-<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+<script type="text/javascript" src="/yhwang-xdu/lib/slideout/slideout.js"></script>
 
 
 
-<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="/yhwang-xdu/lib/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+  <script type="text/javascript" src="/yhwang-xdu/js/src/even.js?v=3.0.0"></script>
 </body>
 
 </html>
